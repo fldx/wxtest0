@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.21)
 
+#set(X_VCPKG_APPLOCAL_DEPS_INSTALL ON)
 
 project(wxtest0)
 
@@ -10,13 +11,13 @@ set(CMAKE_CXX_STANDARD 14)
 
 #endif()
 
-
-set(X_VCPKG_APPLOCAL_DEPS_INSTALL ON)
+#设置静态编译
 set(wxBUILD_SHARED OFF)
+set(VCPKG_CRT_LINKAGE static)
 set(VCPKG_LIBRARY_LINKAGE static)
 
 find_package(wxWidgets REQUIRED COMPONENTS)
-link_directories(vcpkg_installed/x86-windows/bin)
+
 add_executable(wxtest0 WIN32 main.cpp)
 target_include_directories(wxtest0 PRIVATE ${wxWidgets_INCLUDE_DIRS})
 target_link_libraries(wxtest0 PRIVATE ${wxWidgets_LIBRARIES})
