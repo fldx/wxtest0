@@ -21,4 +21,4 @@ find_package(wxWidgets REQUIRED)
 
 add_executable(wxtest0 WIN32 main.cpp)
 target_include_directories(wxtest0 PRIVATE ${wxWidgets_INCLUDE_DIRS})
-target_link_libraries(wxtest0 PRIVATE ${wxWidgets_LIBRARIES})
+target_link_libraries(wxtest0 PRIVATE ${WX_DEBUG_LIBS})
